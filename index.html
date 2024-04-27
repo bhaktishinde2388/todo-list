@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&family=Pacifico&display=swap');
+         body
+         {
+            background-color: rgb(108, 223, 223);
+         }
+        .heading
+        {
+            text-align: center;
+            font-size: 40px;
+            color: purple;
+            font-weight: bolder;
+            font-family: "Lobster", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
         .action-container
         {
             display: flex;
@@ -12,16 +27,17 @@
             margin-top: 20px;
             padding: 20px;
             margin: 10px;
+         
         }
         .list-container
         {
         display: block;
         margin:  0 auto;
-        height: 300px;
-        width: 500px;
-        border: 1px solid gray;
+        height: 400px;
+        width: 600px;
+        border: 15px dotted gray;
         border-radius:10PX;
-        padding: 15px;
+        padding: 10px;
         background-color: pink;
         overflow-y: scroll;
         font-size: 20px;
@@ -36,18 +52,21 @@
     </style>
 </head>
 <body>
-    
+    <div class="heading">To Do List </div>
     <div class="list-container" id="list-container">
-        <div class="todo-item">To Do List</div>
+       
+            <div class="todo-item">list1</div>
     </div>
-
+    </div>
+    
     <div class="action-container">
-        <input type="text" id="inputof-todo" style="width: 300px;">
+        <input type="text" id="inputof-todo" style="width: 400px; border-radius:15px;  background-color: rgb(252, 239, 214);">
         
     &nbsp;  &nbsp;
-        <button type="button" onclick="add()" style="padding: 5px;">
+        <button type="button" onclick="add()" style="border-radius: 5px;padding: 10px; background-color: pink;">
             Add
         </button>
+
     </div>
 
     <script>
@@ -71,7 +90,7 @@
             {
                 listContainer.innerHTML += `<div class="todo-item">
                     <input type="checkbox"/>
-                    ${todoItem} </div>`;
+                    ${todoItem} </div><hr>`;
             }
         }
     </script>
