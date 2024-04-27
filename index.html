@@ -4,21 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
     
-    <div>
-        <div>To Do List</div>
+    <div class="list-container" id="list-container">
+        <div class="todo-item">To Do List</div>
     </div>
 
-    <div>
-        <input type="text" id="">
+    <div class="action-container">
+        <input type="text" id="inputof-todo" style="width: 300px;">
         
-        <button type="button" onclick="">
+    &nbsp;  &nbsp;
+        <button type="button" onclick="add()" style="padding: 5px;">
             Add
         </button>
     </div>
 
+    <script>
+        const todoList = []
+
+        function add()
+        {
+            const inputElement = document.getElementById("inputof-todo")
+            todoList.push(inputElement.value)
+            inputElement.value=" "
+            
+            renderToDoList()
+        }
+
+        function renderToDoList()
+        {
+            const listContainer = document.getElementById("list-container")
+            listContainer.innerHTML = " "
+
+            for(const todoItem of todoList)
+            {
+                listContainer.innerHTML += `<div class="todo-item">
+                    <input type="checkbox"/>
+                    ${todoItem} </div>`;
+            }
+        }
+    </script>
     
 </body>
 </html>
