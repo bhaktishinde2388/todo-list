@@ -70,13 +70,19 @@
     </div>
 
     <script>
-        const todoList = []
+        let todoList = []
 
+        const localstoragelist = localStorage.getItem("todoList");
+        if(localstoragelist){
+            todoList = JSON.parse(localstoragelist);
+            renderToDoList();
+        }
         function add()
         {
-            const inputElement = document.getElementById("inputof-todo")
-            todoList.push(inputElement.value)
-            inputElement.value=" "
+            const inputElement = document.getElementById("inputof-todo");
+            todoList.push(inputElement.value);
+             localStorage.setItem("todoList",JSON.stringify(todoList));
+            inputElement.value=" ";
             
             renderToDoList()
         }
@@ -84,7 +90,7 @@
         function renderToDoList()
         {
             const listContainer = document.getElementById("list-container")
-            listContainer.innerHTML = " "
+            listContainer.innerHTML = " ";
 
             for(const todoItem of todoList)
             {
